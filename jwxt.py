@@ -87,8 +87,7 @@ def login(username,password):
     # 根据cookie信息获取验证码，并保存
     code_url = hostUrl+"/sys/ValidateCode.aspx?t=" + str(random.randint(0, 999))
     getCode(url=code_url, cookie=str(cookie))
-    # username = '201602505116'
-    # password = '808799'
+   
     yzm = str(input("请输入验证码："))
     password_encode = _md5((username + _md5(password)[0:30].upper() + code))[0:30].upper()
     code_encode = _md5((_md5(yzm.upper())[0:30].upper() + code))[0:30].upper()
